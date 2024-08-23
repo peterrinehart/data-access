@@ -17,6 +17,7 @@
 
 package org.pentaho.platform.dataaccess.metadata.model.impl;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 /**
@@ -24,6 +25,7 @@ import java.io.Serializable;
  *
  * @author jamesdixon
  */
+@XmlRootElement
 public class ModelInfo implements Serializable {
 
   private static final long serialVersionUID = -8341925508348437605L;

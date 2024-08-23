@@ -22,7 +22,7 @@
 pentaho.pda.MqlHandler = function mqlHandler(sandbox) {
 	pentaho.pda.Handler.call(this, sandbox);
     this.type = pentaho.pda.SOURCE_TYPE_MQL;
-    this.METADATA_SERVICE_URL = '../../../../content/ws-run/metadataService'; 
+    this.METADATA_SERVICE_URL = '../../../../plugin/data-access/api/metadataDA';
 }
 
 inheritPrototype(pentaho.pda.MqlHandler, pentaho.pda.Handler); //borrow the parent's methods
@@ -61,7 +61,7 @@ pentaho.pda.MqlHandler.prototype.getSources = function(filter, callback) {
 
             // parse the XML
             var xml = parseXML( result ), 
-            nodes = xml.getElementsByTagName('return');
+            nodes = xml.getElementsByTagName('modelInfo');
             for( var idx=0; idx<nodes.length; idx++ ) {
                 each = this.addModelInfoFromNode( nodes[idx] ) || {};
 				each.addCapability(pentaho.pda.CAPABILITIES.HAS_DOWN_AXIS);
